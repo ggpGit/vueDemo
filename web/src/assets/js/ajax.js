@@ -1,5 +1,5 @@
-import axios from 'axios';
-let qs = require('qs');
+import axios from 'axios'
+let qs = require('qs')
 
 let instance = axios.create({
   baseURL: '',
@@ -7,7 +7,7 @@ let instance = axios.create({
   headers: {
     'Content-Type': 'application/x-www-form-urlencoded'
   }
-});
+})
 
 const ajax = (url, params, method) => {
   return new Promise((resolve, reject) => {
@@ -16,17 +16,17 @@ const ajax = (url, params, method) => {
       method,
       data: qs.stringify(params)
     }).then(res => {
-      console.log(res);
-      if(res.data.success === true) {
-        resolve(res.data.data);
+      console.log(res)
+      if (res.data.success === true) {
+        resolve(res.data.data)
       } else {
-        throw res;
+        throw res
       }
     }).catch(err => {
-      console.error(err);
-      reject(err);
+      console.error(err)
+      reject(err)
     })
   })
-};
+}
 
-export default ajax;
+export default ajax

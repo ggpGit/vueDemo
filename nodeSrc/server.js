@@ -31,13 +31,15 @@ app.use(async (ctx, next) => {
 });
 
 // response
-app.use(async ctx => {
+/* app.use(async ctx => {
     ctx.body = 'Hello World';
-});
+}); */
 
 const userRouter = require('./routes/api/userRouter');
+const testRouter = require('./routes/api/test');
 
 app.use(userRouter.routes()).use(userRouter.allowedMethods());
+app.use(testRouter.routes()).use(testRouter.allowedMethods());
 
 http.createServer(app.callback()).listen(3000);
 https.createServer(app.callback()).listen(3001);
